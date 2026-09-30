@@ -10,6 +10,50 @@
   <script src="data.js" defer></script>
   <script src="main.js" defer></script>
   <script src="home.js" defer></script>
+  <style>
+    /* Styling for the new text-only cycling section */
+    #category-ticker {
+      background-color: #f9f9f9;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #eaeaea;
+    }
+    .ticker-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      height: 90px;
+      overflow: hidden;
+    }
+    .ticker-slide {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      pointer-events: none;
+    }
+    .ticker-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .ticker-slide h2 {
+      font-size: 2rem;
+      margin: 0 0 10px 0;
+      color: #222;
+    }
+    .ticker-slide .btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .ticker-slide .btn:hover {
+      background: #444;
+    }
+  </style>
 </head>
 <body>
   <p class="announce">Free delivery on orders over Rs. 10000</p>
@@ -34,32 +78,23 @@
   </header>
 
   <main>
-    <section id="hero">
-      <div class="slide active">
-        <img src="https://picsum.photos/seed/h1/1400/600" alt="Collectible figurines on a shelf" width="1400" height="600">
-        <div class="caption">
-          <h1>Collectible Figurines</h1>
+    <!-- New Text-Only Cycling Section -->
+    <section id="category-ticker">
+      <div class="ticker-container">
+        <div class="ticker-slide active">
+          <h2>Collectible Figurines</h2>
           <a class="btn" href="products.html" onclick="saveCategory('Figurines')">Shop Now</a>
         </div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/seed/h2/1400/600" alt="Colourful toys" width="1400" height="600">
-        <div class="caption">
-          <h1>Fun Toys</h1>
+        <div class="ticker-slide">
+          <h2>Fun Toys</h2>
           <a class="btn" href="products.html" onclick="saveCategory('Toys')">Shop Now</a>
         </div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/seed/h3/1400/600" alt="Board games on a table" width="1400" height="600">
-        <div class="caption">
-          <h1>Board Games</h1>
+        <div class="ticker-slide">
+          <h2>Board Games</h2>
           <a class="btn" href="products.html" onclick="saveCategory('Board Games')">Shop Now</a>
         </div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/seed/h4/1400/600" alt="Diecast model cars" width="1400" height="600">
-        <div class="caption">
-          <h1>Diecast Cars</h1>
+        <div class="ticker-slide">
+          <h2>Diecast Cars</h2>
           <a class="btn" href="products.html" onclick="saveCategory('Diecast Cars')">Shop Now</a>
         </div>
       </div>
@@ -124,5 +159,20 @@
   </div>
 
   <p id="message" class="hidden"></p>
+
+  <!-- Optional script to cycle the text slides automatically if home.js doesn't handle #category-ticker -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".ticker-slide");
+      if (slides.length > 0) {
+        let currentIndex = 0;
+        setInterval(() => {
+          slides[currentIndex].classList.remove("active");
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add("active");
+        }, 3500); // Changes every 3.5 seconds
+      }
+    });
+  </script>
 </body>
 </html>
