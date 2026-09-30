@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Toy Haven wishlist and collection.">
+  <title>Toy Haven | Wishlist</title>
+  <link rel="icon" href="Sd_images/Logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="wishlist.js" defer></script>
+</head>
+<body>
+  <p class="announce">Free delivery on orders over Rs. 10000</p>
+
+  <header>
+    <div class="bar">
+      <a href="index.html" class="logo">Toy Haven</a>
+      <div class="search">
+        <input type="text" id="searchBox" placeholder="Search toys..." aria-label="Search products">
+        <button type="button" id="searchBtn">Search</button>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="wishlist.html" class="active">Wishlist</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="cart.html">Cart <span class="count" id="cartCount">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>My collection</h1>
+    <p>
+      <label for="statusFilter">Show:</label>
+      <select id="statusFilter" name="statusFilter">
+        <option value="All">All</option>
+        <option value="Interested">Interested</option>
+        <option value="Owned">Owned</option>
+        <option value="Not interested">Not interested</option>
+      </select>
+    </p>
+    <p id="count"></p>
+    <div id="wishGrid" class="grid"></div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <ul>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <div>
+        <label for="newsEmail">Join our newsletter</label><br>
+        <input type="email" id="newsEmail" placeholder="you@email.com">
+        <button type="button" id="newsBtn">Subscribe</button>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Toy Haven</p>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modalBox">
+      <button type="button" class="close" onclick="closeModal()">Close</button>
+      <img id="mImg" src="" alt="" width="600" height="450">
+      <h3 id="mName"></h3>
+      <p id="mCat"></p>
+      <p id="mDesc"></p>
+      <p id="mPrice"></p>
+      <button type="button" onclick="addToCart(modalId)">Add to Cart</button>
+    </div>
+  </div>
+
+  <p id="message" class="hidden"></p>
+</body>
+</html>

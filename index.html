@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toy Haven - figurines, toys, board games and diecast cars.">
+  <title>Toy Haven | Home</title>
+  <link rel="icon" href="Sd_images/Logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="home.js" defer></script>
+</head>
+<body>
+  <p class="announce">Free delivery on orders over Rs. 10000</p>
+
+  <header>
+    <div class="bar">
+      <a href="index.html" class="logo">Toy Haven</a>
+      <div class="search">
+        <input type="text" id="searchBox" placeholder="Search toys..." aria-label="Search products">
+        <button type="button" id="searchBtn">Search</button>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="cart.html">Cart <span class="count" id="cartCount">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="slide active">
+        <img src="https://picsum.photos/seed/h1/1400/600" alt="Collectible figurines on a shelf" width="1400" height="600">
+        <div class="caption">
+          <h1>Collectible Figurines</h1>
+          <a class="btn" href="products.html" onclick="saveCategory('Figurines')">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://picsum.photos/seed/h2/1400/600" alt="Colourful toys" width="1400" height="600">
+        <div class="caption">
+          <h1>Fun Toys</h1>
+          <a class="btn" href="products.html" onclick="saveCategory('Toys')">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://picsum.photos/seed/h3/1400/600" alt="Board games on a table" width="1400" height="600">
+        <div class="caption">
+          <h1>Board Games</h1>
+          <a class="btn" href="products.html" onclick="saveCategory('Board Games')">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://picsum.photos/seed/h4/1400/600" alt="Diecast model cars" width="1400" height="600">
+        <div class="caption">
+          <h1>Diecast Cars</h1>
+          <a class="btn" href="products.html" onclick="saveCategory('Diecast Cars')">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="center">Featured Product of the Day</h2>
+      <div id="potd" class="grid"></div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="center">Shop by Category</h2>
+      <div class="tiles">
+        <a class="tile" href="products.html" onclick="saveCategory('Figurines')">
+          <img src="Sd_images/Dragon Knight Figure.jpg" alt="Figurines" width="400" height="400"><span>Figurines</span>
+        </a>
+        <a class="tile" href="products.html" onclick="saveCategory('Toys')">
+          <img src="Sd_images/RC Stunt Car.jpg" alt="Toys" width="400" height="400"><span>Toys</span>
+        </a>
+        <a class="tile" href="products.html" onclick="saveCategory('Board Games')">
+          <img src="Sd_images/Castle Conquest.jpg" alt="Board Games" width="400" height="400"><span>Board Games</span>
+        </a>
+        <a class="tile" href="products.html" onclick="saveCategory('Diecast Cars')">
+          <img src="Sd_images/Classic Muscle Car.jpg" alt="Diecast Cars" width="400" height="400"><span>Diecast Cars</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="center">Featured Products</h2>
+      <div id="featured" class="grid"></div>
+      <p class="center"><br><a class="btn" href="products.html" onclick="saveCategory('All')">View all</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <ul>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <div>
+        <label for="newsEmail">Join our newsletter</label><br>
+        <input type="email" id="newsEmail" placeholder="you@email.com">
+        <button type="button" id="newsBtn">Subscribe</button>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Toy Haven</p>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modalBox">
+      <button type="button" class="close" onclick="closeModal()">Close</button>
+      <img id="mImg" src="" alt="" width="600" height="450">
+      <h3 id="mName"></h3>
+      <p id="mCat"></p>
+      <p id="mDesc"></p>
+      <p id="mPrice"></p>
+      <button type="button" onclick="addToCart(modalId)">Add to Cart</button>
+    </div>
+  </div>
+
+  <p id="message" class="hidden"></p>
+</body>
+</html>
